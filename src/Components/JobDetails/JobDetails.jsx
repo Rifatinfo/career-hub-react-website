@@ -18,7 +18,7 @@ const JobDetails = () => {
 
 
     const handleAppliedJob = () => {
-       saveJobApplication(id);
+       saveJobApplication(parseInt(id));
        toast('You have applied successfully');
     }
     return (
