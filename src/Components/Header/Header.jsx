@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import Banner from "../Banner/Banner";
+// import Banner from "../Banner/Banner";
 
 const Header = () => {
   const link = (
@@ -53,9 +53,9 @@ const Header = () => {
           <a className="btn bg-gradient-to-r from-indigo-500 to-blue-500 font-semibold text-xl text-white">Start Applying</a>
         </div>
       </div>
-      <div>
+      {/* <div>
         <Banner></Banner>
-      </div>
+      </div> */}
     </div>
   );
 };
