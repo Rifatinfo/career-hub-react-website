@@ -4,7 +4,9 @@ import { CiCalendarDate } from "react-icons/ci";
 import { MdCall } from "react-icons/md";
 import { TbMessageCog } from "react-icons/tb";
 import { CiLocationOn } from "react-icons/ci";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { saveJobApplication } from "../../utility/localStorage";
 
 
 
@@ -13,6 +15,12 @@ const JobDetails = () => {
     const { id } = useParams();
     console.log(id, jobs);
     const job = jobs.find(job => job.id === parseInt(id));
+
+
+    const handleAppliedJob = () => {
+       saveJobApplication(id);
+       toast('You have applied successfully')
+    }
     return (
         <div>
             <div className="flex justify-between items-center">
@@ -54,11 +62,12 @@ const JobDetails = () => {
                         <p className="flex"><CiLocationOn className="text-[#3b82f6] text-4xl" /><span className="font-bold">Address  </span> <span className="font-bold"> :</span> {job.contact_information.address}</p>
                     </div>
                     <div>
-                        <button className="btn bg-gradient-to-r from-indigo-500 to-blue-500 font-semibold text-xl text-white w-full mt-9">Apply Now</button>
+                        <button onClick={handleAppliedJob} className="btn bg-gradient-to-r from-indigo-500 to-blue-500 font-semibold text-xl text-white w-full mt-9">Apply Now</button>
                     </div>
                 </div>
 
             </div>
+            <ToastContainer />
         </div>
     );
 };
